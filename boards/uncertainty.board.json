@@ -1,0 +1,25 @@
+{
+    "$schema": "https://raw.githubusercontent.com/microsoft/devicescript-pico/main/boards/rp2040deviceconfig.schema.json",
+    "devName": "uncertainty",
+    "productId": "0x3faf7e0e",
+    "$description": "'Uncertainty' Eurorack module by Olivia Artz Modular",
+    "archId": "rp2040",
+    "url": "https://oamodular.org/products/uncertainty",
+    "services": [
+        {
+            "name": "cvIn",
+            "pin": 26,
+            "service": "analog:potentiometer"
+        }
+    ],
+    "pins": {
+        "P27": 27,
+        "P28": 28,
+        "P29": 29,
+        "P0": 0,
+        "P3": 3,
+        "P4": 4,
+        "P2": 2,
+        "P1": 1
+    }
+}
