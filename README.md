@@ -1,10 +1,9 @@
-# DeviceScript for Uncertainty
+# TypeScript for Uncertainty
 
-This _experimental_ project uses the [DeviceScript](https://microsoft.github.io/devicescript/)
-platform to develop firmware for the [Uncertainty Eurorack module](https://oamodular.org/products/uncertainty)
-by Olivia Artz Modular.
+This is an _experimental_ project to run TypeScript on the [Uncertainty Eurorack module](https://oamodular.org/products/uncertainty)
+using Microsoft's [DeviceScript](https://microsoft.github.io/devicescript/) platform.
 
-I haven't bricked my device, but use at your own risk!
+I haven't bricked my device, but use at your own risk! At the time of writing, DeviceScript is still a "technical preview" release and may have bugs.
 
 ## Files of interest
 
@@ -47,10 +46,14 @@ code .
     -   A dropdown appears. Select "Serial"
     -   Assuming Uncertainty is still connected to the computer via USB and had the DeviceScript runtime flashed onto it, it should appear in a Devices pane (with some cryptic name like "VT28")
 
--   Open `src/main.ts`
+-   Open `src/main.ts` (this script has lots of comments explaining what it does, so take a read through it)
 
 -   In the code editor pane, a play button should appear up top by the file tabs.
     Click it to build and run the firmware. To the right is a little drop down where
     you can switch between running with and without the debugger.
 
 -   After making changes to the code, click the run button again. Sometimes it doesn't work and I have to ctrl+C the terminal, and then reconnect to the device. Maybe you're supposed to stop it in one of the side panels first.
+
+## Changing the board config
+
+After editing boards/uncertainty.board.json, you need to re-flash the firmware. See the "Flash the DeviceScript runtime" instructions above (power on into boot mode, run the `devicescript flash` command).
