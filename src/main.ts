@@ -61,10 +61,25 @@ interval(1000).subscribe(async () => {
 // -5V to 5V produces 0 - 0.5, with 0V midway at about 0.25 but with some offset.
 // Note the range stretches out the higher the input voltage.
 
+
+// Attempting to calibrate over -5V to +5V based on my measurements (yours might differ)
+// Then I fudged things to center 0V
+const CV_MIN = -0.05
+const CV_MAX = 0.505
+const CV_RANGE = CV_MAX - CV_MIN;
+
+// convert to calibrated input range (-1, 1) over -5V to +5V input
+function normalize(rawCV: number) {
+    const calibrated = (rawCV - CV_MIN)/CV_RANGE;
+    const clamped = Math.min(Math.max(calibrated, 0), 1);
+    return 2 * clamped - 1;
+}
+
+
 let lastCV = NaN;
 cvIn.reading.subscribe(rawCV => {
     // drop some precision to "filter" out noise
-    const cv = Math.round(100 * rawCV)/100;
+    const cv = Math.round(100 * normalize(rawCV))/100;
     if (cv !== lastCV) {
         console.log(`CV in: ${cv}`);
         lastCV = cv;
