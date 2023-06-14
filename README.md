@@ -54,6 +54,20 @@ code .
 
 -   After making changes to the code, click the run button again. Sometimes it doesn't work and I have to ctrl+C the terminal, and then reconnect to the device. Maybe you're supposed to stop it in one of the side panels first.
 
+### Running from the command line / running other firmware files
+
+With Uncertainty connected over USB, you can use a different file as its firmware with:
+
+```bash
+npx devs devtools --logging --serial src/alt-firmware.ts
+```
+
+This probably won't work at first. The DeviceScript plugin for VS Code often automatically connects to the device. You should see two terminals are actually open off to the side. Kill the one called DeviceScript. Then the above command should work in your main terminal.
+
+If you're lucky, saving changes to your firmware file may auto-reload the hardware. Or hit Ctrl+C to detach the logger connection, then rerun to load your latest code changes onto the hardware.
+
+Note: when rerunning this command, it sometimes prints out logs from the previous version of the firmware for a moment. If you look closer, there's build, deploy, and init steps happening, so ignore any logs you see before that.
+
 ## Changing the board config
 
 After editing boards/uncertainty.board.json, you need to re-flash the firmware. See the "Flash the DeviceScript runtime" instructions above (power on into boot mode, run the `devicescript flash` command).
