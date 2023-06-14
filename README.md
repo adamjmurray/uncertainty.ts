@@ -72,8 +72,10 @@ With Uncertainty connected over USB, you can use a different file as its
 firmware with:
 
 ```bash
-npx devs devtools --logging --serial src/alt-firmware.ts
+npx devs devtools --logging --serial src/alt.ts
 ```
+
+(`devs` is short for `devicescript`)
 
 This probably won't work at first. The DeviceScript plugin for VS Code often
 automatically connects to the device. You should see two terminals are actually
