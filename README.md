@@ -3,7 +3,7 @@
 This is an _experimental_ project to run TypeScript on the [Uncertainty Eurorack module](https://oamodular.org/products/uncertainty)
 using Microsoft's [DeviceScript](https://microsoft.github.io/devicescript/) platform.
 
-I haven't bricked my device, but use at your own risk! At the time of writing, DeviceScript is still a "technical preview" release and may have bugs.
+This repository has a working proof-of-concept you can try. At the time of writing, DeviceScript is still a "technical preview" release. My code probably has bugs too.
 
 ## Files of interest
 
